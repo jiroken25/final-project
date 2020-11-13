@@ -1,80 +1,31 @@
-# import necessary libraries
-from models import create_classes
-import os
-from flask import (
-    Flask,
-    render_template,
-    jsonify,
-    request,
-    redirect)
+from flask import Flask, request, render_template
+import numpy as np
+from tensorflow.keras.models import model_from_json
 
-#################################################
-# Flask Setup
-#################################################
+def model_predict(x):
+    model = model_from_json(open('covid_model.json', 'r').read())
+    model.load_weights('covid_weights.h5')
+    class_figure = model.predict_classes(np.array([x]),batch_size=1)[0]
+    if class_figure == 1:
+        output = "Successful"
+    else:
+        output =  "Failed"
+
+    return output
+
 app = Flask(__name__)
 
-#################################################
-# Database Setup
-#################################################
-
-from flask_sqlalchemy import SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', '') or "sqlite:///db.sqlite"
-
-# Remove tracking modifications
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-
-Pet = create_classes(db)
-
-# create route that renders index.html template
-@app.route("/")
+@app.route('/')
 def home():
-    return render_template("index.html")
+	return render_template('index.html')
 
+@app.route('/predict',methods=['POST','GET'])
+def predict():
+    if request.method=='POST':
+       x = [float(request.form["health"]),float(request.form["bed"]),float(request.form["stay"]),float(request.form["life"]),float(request.form["unemployment"]),float(request.form["obesity"]),float(request.form["transport"]),float(request.form["poverty"]),float(request.form["science"])]
+       output = model_predict(x)
+       return render_template('predict.html',output=output)
 
-# Query the database and send the jsonified results
-@app.route("/send", methods=["GET", "POST"])
-def send():
-    if request.method == "POST":
-        name = request.form["petName"]
-        lat = request.form["petLat"]
-        lon = request.form["petLon"]
-
-        pet = Pet(name=name, lat=lat, lon=lon)
-        db.session.add(pet)
-        db.session.commit()
-        return redirect("/", code=302)
-
-    return render_template("form.html")
-
-
-@app.route("/api/pals")
-def pals():
-    results = db.session.query(Pet.name, Pet.lat, Pet.lon).all()
-
-    hover_text = [result[0] for result in results]
-    lat = [result[1] for result in results]
-    lon = [result[2] for result in results]
-
-    pet_data = [{
-        "type": "scattergeo",
-        "locationmode": "USA-states",
-        "lat": lat,
-        "lon": lon,
-        "text": hover_text,
-        "hoverinfo": "text",
-        "marker": {
-            "size": 50,
-            "line": {
-                "color": "rgb(8,8,8)",
-                "width": 1
-            },
-        }
-    }]
-
-    return jsonify(pet_data)
-
-
-if __name__ == "__main__":
-    app.run()
+    
+if __name__ == '__main__':
+	app.run()

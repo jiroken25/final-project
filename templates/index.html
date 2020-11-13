@@ -1,39 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pet Pals!</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-
+<html>
+<title>Covid Successful Country</title>
 <body>
-    <div class="container">
-        <div class="jumbotron" style="text-align: center">
-            <h1>Pet Pal</h1>
-            <p>Find your pet a pal!</p>
-        </div>
+<h1>Put your country's information and the site will predict "Fail or Success" against next virus</h1>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Look at all of the current pet pals!</h2>
-                <div id="plot"></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h2><a href="/send">Add your pet here!</a></h2>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<form action = "/predict" method="POST">
+	<p> How much USD is used for Health per capita? [0-10000]:<input name="health" type ="number" value="3000" /> </p>
+	<p> How many hospital beds per 1000 inhabitans? [1-15]<input name="bed" type ="number" value="5" /> </p>
+	<p> How many days spent on acute care on average?[1-20]  <input name="stay" type ="number" value="10" />
+	<p> How old is average life expectancy?[60-90]<input name="life" type ="number" value="70" /> </p>
+	<p> What is unemployment rate?[0-100] <input name="unemployment" type ="number" value="10" /> </p>
+    <p> What is obesity rate?[0-100] <input name="obesity" type ="number" value="10" /> </p>
+    <p> How many kms is total transport ( Million passenger-kilometres) [1-500,000] <input name="transport" type ="number" value="10000" /> </p>
+    <p> What is poverty_rate?[0-100] <input name="poverty" type ="number" value="10" /> </p>
+     <p> What is science test score on average?[450-550] <input name="science" type ="number" value="500" /> </p>
+     	<p> <input type ="submit" value="submit" /> </p>
+</form>
 </body>
-
 </html>
