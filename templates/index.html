@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
+<head>
 <title>Covid Successful Country</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+  <script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script> 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+  <script>
+        jQuery(function($){
+            $("#country").DataTable();
+        });
+ 
+  </script>
+</head>
 <body>
 <h1>Put your country's information and the site will predict "Fail or Success" against next virus</h1>
 
@@ -40,18 +54,18 @@
       {% for each in data %}
           <tr>
           <td>{{ each["Country"] }}</a></td>
-          <td>{{ each["Population"]}}</td>
-          <td>{{ each["Death"]}}</td>
-          <td>{{ each['death/population']}}</td>
-		    <td>{{ each['Health_Spending']}}</a></td>
-          <td>{{ each['Hospital_bed']}}</td>
-          <td>{{ each['Hospital_stay']}}</td>
-          <td>{{ each['Life_expectancy']}}</td>
-		    <td>{{ each["Unemployment_rate"]}}</a></td>
-          <td>{{ each["Obesity_rate"]}}</td>
-          <td>{{ each["transporation"]}}</td>
-          <td>{{ each["poverty_rate"]}}</td>
-		  <td>{{ each["science_score"]}}</td>
+          <td>{{ each["Population"]|round|int}}</td>
+          <td>{{ each["Death"]|round|int}}</td>
+          <td>{{ each['death/population']|round(5,'common')}}</td>
+		    <td>{{ each['Health_Spending']|round}}</a></td>
+          <td>{{ each['Hospital_bed']|round}}</td>
+          <td>{{ each['Hospital_stay']|round}}</td>
+          <td>{{ each['Life_expectancy']|round}}</td>
+		    <td>{{ each["Unemployment_rate"]|round}}</a></td>
+          <td>{{ each["Obesity_rate"]|round}}</td>
+          <td>{{ each["transporation"]|round}}</td>
+          <td>{{ each["poverty_rate"]|round}}</td>
+		  <td>{{ each["science_score"]|round}}</td>
           </tr>
       {% endfor %}
       </tbody>
