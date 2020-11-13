@@ -39,19 +39,19 @@
       <tbody>
       {% for each in data %}
           <tr>
-          <td>{{ each.Country }}</a></td>
-          <td>{{ each.Population|round|int}}</td>
-          <td>{{ each.Death|round|int }}</td>
-          <td>{{ each."death/population"|round|int}}</td>
-		    <td>{{ each."Health_Spending"|round|int}}</a></td>
-          <td>{{ each."Hospital_bed"|round}}</td>
-          <td>{{ each."Hospital_stay"|round }}</td>
-          <td>{{ each."Life_expectancy"|round|int }}</td>
-		    <td>{{ each."Unemployment_rate"|round }}</a></td>
-          <td>{{ each."Obesity_rate"|round}}</td>
-          <td>{{ each."transporation"|round|int }}</td>
-          <td>{{ each."poverty_rate"|round}}</td>
-		  <td>{{ each."science_score"|round|int }}</td>
+          <td>{{ each["Country"] }}</a></td>
+          <td>{{ each["Population"]|round|int}}</td>
+          <td>{{ each["Death"]|round|int }}</td>
+          <td>{{ each['death/population']|round|int}}</td>
+		    <td>{{ each['Health_Spending']|round|int}}</a></td>
+          <td>{{ each['Hospital_bed']|round}}</td>
+          <td>{{ each['Hospital_stay']|round }}</td>
+          <td>{{ each['Life_expectancy']|round|int }}</td>
+		    <td>{{ each["Unemployment_rate"]|round }}</a></td>
+          <td>{{ each["Obesity_rate"]|round}}</td>
+          <td>{{ each["transporation"]|round|int }}</td>
+          <td>{{ each["poverty_rate"]|round}}</td>
+		  <td>{{ each["science_score"]|round|int }}</td>
           </tr>
       {% endfor %}
       </tbody>
