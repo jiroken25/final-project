@@ -1,4 +1,4 @@
-# final-project
+# final-project (Covid-successful Country)
 
 ## Purpose
 
@@ -20,12 +20,12 @@
     COVID API
     - https://rapidapi.com/Gramzivi/api/covid-19-data
 
-## ETL
+## ETL (pandas.ipynb)
 - Using Pandas to read csv and transform them to upload Postgres on Heroku
 - For futre machine learning, created dataset for training
 - Using requests to get Covid data and load into pandas and then to Postgres
 
-## Machine Learning (Neural Network)
+## Machine Learning (Neural Network) (machinelearning.ipynb)
 Model: !["Model"](image/modeling.png)
 
 Result: !["Accuracy"](image/model.png)
@@ -33,7 +33,7 @@ Result: !["Accuracy"](image/model.png)
 Saved as h5 file.
 
 
-## Website (Heroku)
+## Website app.py  (Heroku)
 URL: https://bootcamp-coivd.herokuapp.com/
 
 
