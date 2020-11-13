@@ -46,8 +46,8 @@ COM,Comoros
 CPV,Cape Verde
 CRI,Costa Rica
 CSFR,Former Czechoslovakia
-CSFR-CZE,Czech Republic
-CSFR-SVK,Slovak Republic
+CZE,Czech Republic
+SVK,Slovak Republic
 CUB,Cuba
 CYM,Cayman Islands
 CYP,Cyprus
@@ -70,11 +70,11 @@ FLK,Falkland Islands
 FRA,France
 FSM,"Micronesia, Federated states of"
 FYUG,Former Yugoslavia
-FYUG-BIH,Bosnia-Herzegovina
-FYUG-HRV,Croatia
-FYUG-MKD,Macedonia
-FYUG-SVN,Slovenia
-FYUG-YUG,Serbia and Montenegro
+BIH,Bosnia-Herzegovina
+HRV,Croatia
+MKD,Macedonia
+SVN,Slovenia
+YUG,Serbia and Montenegro
 GAB,Gabon
 GBR,United Kingdom
 GHA,Ghana
@@ -108,9 +108,9 @@ KEN,Kenya
 KHM,Cambodia
 KIR,Kiribati
 KNA,Saint Kitts and Nevis
-KOREA-NO,North Korea
-KOREA-NS,South Korea
-KOREA-SO,North and South Korea
+NO,North Korea
+NS,South Korea
+SO,North and South Korea
 KWT,Kuwait
 LAO,Laos
 LBN,Lebanon
@@ -206,21 +206,21 @@ UNK,Unknown
 URY,Uruguay
 USA,United States
 USSR,Former USSR
-USSR-ARM,Armenia
-USSR-AZE,Azerbaidjan
-USSR-BLR,Belarus
-USSR-EST,Estonia
-USSR-GEO,Georgia
-USSR-KAZ,Kazakhstan
-USSR-KGZ,Kirghizistan
-USSR-LTU,Lithuania
-USSR-LVA,Latvia
-USSR-MDA,Moldova
-USSR-RUS,Russia
-USSR-TJK,Tadjikistan
-USSR-TKM,Turkménistan
-USSR-UKR,Ukraine
-USSR-UZB,Uzbekistan
+ARM,Armenia
+AZE,Azerbaidjan
+BLR,Belarus
+EST,Estonia
+GEO,Georgia
+KAZ,Kazakhstan
+KGZ,Kirghizistan
+LTU,Lithuania
+LVA,Latvia
+MDA,Moldova
+RUS,Russia
+TJK,Tadjikistan
+TKM,Turkménistan
+UKR,Ukraine
+UZB,Uzbekistan
 VAT,Holy See
 VCT,Saint Vincent and the Grenadines
 VEN,Venezuela
